@@ -39,6 +39,7 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
+          echo "Branch: ${GITHUB_REF#refs/heads/}"
           git add --force services
           git commit -m "Generate templates for alerts"
           # Push changes to the PR branch
