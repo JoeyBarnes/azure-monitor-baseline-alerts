@@ -29,10 +29,7 @@ jobs:
       HUGO_VERSION: 0.117.0
     steps:
       - name: Wait
-        uses:  willgarcia/workflow-wait-action@v0.1.0
-        with:
-          workflow: |
-            Generate Templates
+        uses:  willgarcia/workflow-wait-action@0.1.0
 
       - name: Install Hugo CLI
         run: |
