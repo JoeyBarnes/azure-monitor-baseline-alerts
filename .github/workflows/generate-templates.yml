@@ -16,7 +16,7 @@ jobs:
   generate-templates:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the current pr branch
+      # Checkout out the head branh of the PR
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -47,7 +47,7 @@ jobs:
           git add --force services
           git commit -m "Generate templates for alerts"
           # Push changes to the PR branch
-          git push origin ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+          git push
 
 
 
