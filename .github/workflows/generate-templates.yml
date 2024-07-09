@@ -43,12 +43,11 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # Checkout the github-action-generate-templates branch (create if doesn't exist)
-          git checkout -B github-action-generate-templates
-          git branch --set-upstream-to=origin/main github-action-generate-templates
+          git checkout main
+          git pull
 
-          # Pull the latest changes from the main branch
-          git pull origin main
+          git checkout -B github-action-generate-templates
+          git merge main
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
@@ -62,8 +61,6 @@ jobs:
           # Check if there are any changes to commit
           if [[ `git status --porcelain` ]]; then
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
-
-            git pull origin main
 
             # Push changes to the current branch
             git push origin github-action-generate-templates
