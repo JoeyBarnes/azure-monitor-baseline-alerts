@@ -35,8 +35,12 @@ jobs:
           python generate-templates.py --path ../../services --output ../../services
         working-directory: tooling/generate-templates
 
+      - uses: rindeal/action-git-config-user@v1
+
       - name: Commit changes to current branch
         run: |
+          git config --global user.email ""
+          git config --global user.name "GitHub Actions"
           git add services
           git commit -m "Generate templates for alerts"
           git push
