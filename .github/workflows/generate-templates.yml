@@ -10,6 +10,7 @@ on:
     paths:
       - 'services/**/alerts.yaml'
       - 'tooling/generate-templates/**'
+      - 'workflow-templates/generate-templates.yml'
 
 jobs:
   generate-templates:
