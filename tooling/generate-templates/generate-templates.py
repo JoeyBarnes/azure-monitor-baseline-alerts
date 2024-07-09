@@ -77,11 +77,10 @@ def main():
   import datetime
   import re
 
-  # Create the output directory if it doesn't exist
-  os.makedirs(args.output, exist_ok=True)
-
   for category in data:
     for resourceType in data[category]:
+
+      print(f"Generating templates for {category}/{resourceType}...")
 
       # create directories based on template types if it doesn't exist
       os.makedirs(os.path.join(args.output, category, resourceType, "templates", "arm"), exist_ok=True)
