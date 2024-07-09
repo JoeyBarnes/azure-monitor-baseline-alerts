@@ -8,6 +8,7 @@ def parseArguments():
   parser = argparse.ArgumentParser(description='This script will generate ARM and Bicep templates for each alert.')
   parser.add_argument('-p', '--path', type=str, required=False, metavar='path', help='Path to services directory', default='../../services')
   parser.add_argument('-o', '--output', type=str, required=False, metavar='output', help='Path to output directory', default='../../services')
+  parser.add_argument('-s', '--template_path', type=str, required=False, metavar='template_path', help='Path to templates directory', default='templates')
   parser.add_argument('-t', '--telemetry_pid', type=str, required=False, metavar='telemetry_pid', help='Telemetry PID', default='pid-8bb7cf8a-bcf7-4264-abcb-703ace2fc84d')
   args = parser.parse_args()
 
@@ -43,12 +44,12 @@ def readYamlData(dir, export_hidden):
 
   return data
 
-def readTemplates():
+def readTemplates(template_path):
   arm = {}
   bicep = {}
 
   # Read ARM templates from arm directory into a string
-  for root, dirs, files in os.walk(os.path.join('.', 'arm')):
+  for root, dirs, files in os.walk(os.path.join(template_path, 'arm')):
     for file in files:
       if file.endswith('.json'):
         # read the file into a string
@@ -56,7 +57,7 @@ def readTemplates():
           arm[file.replace('.json','')] = f.read()
 
   # Read Bicep templates from arm directory into a string
-  for root, dirs, files in os.walk(os.path.join('.', 'bicep')):
+  for root, dirs, files in os.walk(os.path.join(template_path, 'bicep')):
     for file in files:
       if file.endswith('.bicep'):
         # read the file into a string
@@ -71,7 +72,7 @@ def main():
 
   data = readYamlData(args.path, False)
 
-  arm, bicep = readTemplates()
+  arm, bicep = readTemplates(args.template_path)
 
   import datetime
   import re
