@@ -47,7 +47,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           # Create a unique name for the branch based on the current date
-          git branch generate-templates-$(date +'%Y%m%d')
+          git branch github-action-generate-templates
 
           git add services
           if [[ `git status --porcelain` ]]; then
