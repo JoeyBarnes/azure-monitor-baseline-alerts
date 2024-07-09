@@ -62,6 +62,8 @@ jobs:
           if [[ `git status --porcelain` ]]; then
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
+            git pull
+
             # Push changes to the current branch
             git push origin github-action-generate-templates
 
