@@ -51,7 +51,7 @@ jobs:
 
           git add services
           if [[ `git status --porcelain` ]]; then
-            git commit -m "Generate templates for alerts"
+            git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
             git push
 
             # Create a pull request
