@@ -2,6 +2,3 @@
 .hugo_build.lock
 public
 services/amba-alerts*
-services/**/templates/arm
-services/**/templates/bicep
-artifacts/*/**

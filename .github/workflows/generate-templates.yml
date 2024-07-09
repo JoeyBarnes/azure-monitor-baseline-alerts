@@ -3,20 +3,24 @@ name: Generate Templates
 
 on:
   pull_request:
+    types:
+      - opened
     branches:
       - main
     paths:
       - 'services/**/alerts.yaml'
       - 'tooling/generate-templates/**'
+      - 'workflow-templates/generate-templates.yml'
 
 jobs:
   generate-templates:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the current pr branch
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Setup Python
@@ -35,12 +39,16 @@ jobs:
           python generate-templates.py --path ../../services --output ../../services
         working-directory: tooling/generate-templates
 
+      - uses: rindeal/action-git-config-user@v1
+
       - name: Commit changes to current branch
         run: |
-          git add ../../services/**/templates/arm
-          git add ../../services/**/templates/bicep
+          echo "Committing changes to the current branch: ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+          git add --force services
           git commit -m "Generate templates for alerts"
-          git push
+          # Push changes to the PR branch
+          git push origin ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+
 
 
 
