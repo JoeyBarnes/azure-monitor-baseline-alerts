@@ -13,10 +13,11 @@ jobs:
   generate-templates:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the current pr branch
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       - name: Setup Python
@@ -42,7 +43,7 @@ jobs:
           git add --force services
           git commit -m "Generate templates for alerts"
           # Push changes to the PR branch
-          git push origin ${GITHUB_HEAD_REF}
+          git push origin ${{ github.head_ref }}
 
 
 
