@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'Average_% IO Wait Time'
-          dimensions: 
+          dimensions: [
             {
               name: 'computer'
               operator: 'include'
               values: ['vm-prd-dmzout-k8snodes-001']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

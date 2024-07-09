@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'kube_pod_status_phase'
-          dimensions: 
+          dimensions: [
             {
               name: 'phase'
               operator: 'include'
               values: ['failed']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

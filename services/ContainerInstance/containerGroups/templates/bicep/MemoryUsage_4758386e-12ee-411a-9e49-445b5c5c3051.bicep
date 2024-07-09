@@ -116,12 +116,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           criterionType: 'DynamicThresholdCriterion'
           name: '1st criterion'
           metricName: 'MemoryUsage'
-          dimensions: 
+          dimensions: [
             {
               name: 'containername'
               operator: 'include'
               values: ['*']
-            }
+            }]
           operator: operator
           alertSensitivity: alertSensitivity
           failingPeriods: {

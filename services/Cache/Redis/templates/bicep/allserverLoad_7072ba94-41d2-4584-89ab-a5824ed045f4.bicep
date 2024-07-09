@@ -107,7 +107,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'allserverLoad'
-          dimensions: 
+          dimensions: [
             {
               name: 'shardid'
               operator: 'include'
@@ -117,7 +117,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
               name: 'primary'
               operator: 'include'
               values: ['true']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'IntegrationTriggerRunsEnded'
-          dimensions: 
+          dimensions: [
             {
               name: 'result'
               operator: 'exclude'
               values: ['succeeded']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'TotalRequestUnits'
-          dimensions: 
+          dimensions: [
             {
               name: 'statuscode'
               operator: 'include'
               values: ['429']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'IncomingMessages'
-          dimensions: 
+          dimensions: [
             {
               name: 'entityname'
               operator: 'include'
               values: ['application-logs']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -107,7 +107,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'TestResult'
-          dimensions: 
+          dimensions: [
             {
               name: 'sourcename'
               operator: 'include'
@@ -127,7 +127,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
               name: 'testconfigurationname'
               operator: 'include'
               values: ['*']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'RestoreHealthEvent'
-          dimensions: 
+          dimensions: [
             {
               name: 'healthstatus'
               operator: 'exclude'
               values: ['healthy']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

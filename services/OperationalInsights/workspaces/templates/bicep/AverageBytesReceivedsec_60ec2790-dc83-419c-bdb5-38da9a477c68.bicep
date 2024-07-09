@@ -116,7 +116,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           criterionType: 'DynamicThresholdCriterion'
           name: '1st criterion'
           metricName: 'Average_Bytes Received/sec'
-          dimensions: 
+          dimensions: [
             {
               name: 'computer'
               operator: 'include'
@@ -136,7 +136,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
               name: 'sourcesystem'
               operator: 'include'
               values: ['*']
-            }
+            }]
           operator: operator
           alertSensitivity: alertSensitivity
           failingPeriods: {

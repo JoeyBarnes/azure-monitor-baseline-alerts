@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'kube_node_status_condition'
-          dimensions: 
+          dimensions: [
             {
               name: 'status2'
               operator: 'include'
               values: ['notready','unknown']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

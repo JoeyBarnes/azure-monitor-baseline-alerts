@@ -107,7 +107,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'Event'
-          dimensions: 
+          dimensions: [
             {
               name: 'source'
               operator: 'include'
@@ -127,7 +127,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
               name: 'eventid'
               operator: 'include'
               values: ['7031','7024','7034']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation
