@@ -2,7 +2,7 @@
   description: Total events failed to deliver to this event subscription
   type: Metric
   verified: false
-  visible: false
+  visible: true
   tags:
   - auto-generated
   - agc-305
