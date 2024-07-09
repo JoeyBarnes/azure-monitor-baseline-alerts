@@ -44,7 +44,7 @@ jobs:
           git branch --set-upstream-to=origin github-action-generate-templates
 
           # Pull the latest changes from the main branch
-          git pull --rebase
+          git pull
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
