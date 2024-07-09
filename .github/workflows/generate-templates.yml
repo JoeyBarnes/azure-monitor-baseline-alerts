@@ -40,7 +40,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           # Checkout the github-action-generate-templates branch (create if doesn't exist)
-          git checkout -B github-action-generate-templates
+          git checkout -B github-action-generate-templates --set-upstream-to=origin
 
           # Pull the latest changes from the main branch
           git pull --rebase
@@ -57,7 +57,7 @@ jobs:
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
             # Push changes to the current branch
-            git push origin github-action-generate-templates
+            git push
 
             # Create a pull request
             echo "Creating a pull request..."
