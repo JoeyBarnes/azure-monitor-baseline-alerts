@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
-          git add services
+          git add --force services
           git commit -m "Generate templates for alerts"
           git push
 
