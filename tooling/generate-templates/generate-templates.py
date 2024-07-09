@@ -80,7 +80,7 @@ def main():
   for category in data:
     for resourceType in data[category]:
 
-      print(f"Generating templates for {category}/{resourceType}...")
+      print(f"Generating templates for {len(data[category][resourceType])} alerts in {category}/{resourceType}...")
 
       # create directories based on template types if it doesn't exist
       os.makedirs(os.path.join(args.output, category, resourceType, "templates", "arm"), exist_ok=True)

@@ -2,7 +2,7 @@
   description: The average CPU used across all instances of front end.
   type: Metric
   verified: false
-  visible: false
+  visible: true
   tags:
   - auto-generated
   - agc-1266
@@ -24,7 +24,7 @@
     under heavy load.
   type: Metric
   verified: false
-  visible: false
+  visible: true
   tags:
   - auto-generated
   - agc-1044
