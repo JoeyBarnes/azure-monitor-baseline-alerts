@@ -129,21 +129,21 @@ def main():
           arm_template = arm_template.replace("##TELEMETRY_PID##", args.telemetry_pid)
           bicep_template = bicep_template.replace("##TELEMETRY_PID##", args.telemetry_pid)
 
-          if 'description' in alert and alert["description"]:
+          if 'description' in alert and alert["description"] is not None:
             arm_template = arm_template.replace("##DESCRIPTION##", alert["description"])
             bicep_template = bicep_template.replace("##DESCRIPTION##", alert["description"])
           else:
             arm_template = arm_template.replace("##DESCRIPTION##", "")
             bicep_template = bicep_template.replace("##DESCRIPTION##", "")
 
-          if 'severity' in alert["properties"] and alert["properties"]["severity"]:
+          if 'severity' in alert["properties"] and alert["properties"]["severity"] is not None:
             arm_template = arm_template.replace("##SEVERITY##", str(int(alert["properties"]["severity"])))
             bicep_template = bicep_template.replace("##SEVERITY##", str(int(alert["properties"]["severity"])))
           else:
             arm_template = arm_template.replace("##SEVERITY##", "")
             bicep_template = bicep_template.replace("##SEVERITY##", "")
 
-          if 'autoMitigate' in alert["properties"] and alert["properties"]["autoMitigate"]:
+          if 'autoMitigate' in alert["properties"] and alert["properties"]["autoMitigate"] is not None:
             if alert["properties"]["autoMitigate"] == True:
               arm_template = arm_template.replace("##AUTO_MITIGATE##", "true")
               bicep_template = bicep_template.replace("##AUTO_MITIGATE##", "true")
@@ -154,7 +154,7 @@ def main():
             arm_template = arm_template.replace("##AUTO_MITIGATE##", "")
             bicep_template = bicep_template.replace("##AUTO_MITIGATE##", "")
 
-          if 'query' in alert["properties"] and alert["properties"]["query"]:
+          if 'query' in alert["properties"] and alert["properties"]["query"] is not None:
             arm_template = arm_template.replace("##QUERY##", json.dumps(alert["properties"]["query"].replace("\n", " ")))
             query = alert["properties"]["query"].replace("\n", " ").replace("'", "\\'")
             bicep_template = bicep_template.replace("##QUERY##", query)
@@ -162,77 +162,83 @@ def main():
             arm_template = arm_template.replace("##QUERY##", "")
             bicep_template = bicep_template.replace("##QUERY##", "")
 
-          if 'metricName' in alert["properties"] and alert["properties"]["metricName"]:
+          if 'metricName' in alert["properties"] and alert["properties"]["metricName"] is not None:
             arm_template = arm_template.replace("##METRIC_NAME##", alert["properties"]["metricName"])
             bicep_template = bicep_template.replace("##METRIC_NAME##", alert["properties"]["metricName"])
           else:
             arm_template = arm_template.replace("##METRIC_NAME##", "")
             bicep_template = bicep_template.replace("##METRIC_NAME##", "")
 
-          if 'metricMeasureColumn' in alert["properties"] and alert["properties"]["metricMeasureColumn"]:
+          if 'metricMeasureColumn' in alert["properties"] and alert["properties"]["metricMeasureColumn"] is not None:
             arm_template = arm_template.replace("##METRIC_MEASURE_COLUMN##", alert["properties"]["metricMeasureColumn"])
             bicep_template = bicep_template.replace("##METRIC_MEASURE_COLUMN##", alert["properties"]["metricMeasureColumn"])
           else:
             arm_template = arm_template.replace("##METRIC_MEASURE_COLUMN##", "")
             bicep_template = bicep_template.replace("##METRIC_MEASURE_COLUMN##", "")
 
-          if 'resouceIdColumn' in alert["properties"] and alert["properties"]["resouceIdColumn"]:
+          if 'resouceIdColumn' in alert["properties"] and alert["properties"]["resouceIdColumn"] is not None:
             arm_template = arm_template.replace("##RESOURCE_ID_COLUMN##", alert["properties"]["resouceIdColumn"])
             bicep_template = bicep_template.replace("##RESOURCE_ID_COLUMN##", alert["properties"]["resouceIdColumn"])
           else:
             arm_template = arm_template.replace("##RESOURCE_ID_COLUMN##", "")
             bicep_template = bicep_template.replace("##RESOURCE_ID_COLUMN##", "")
 
-          if 'operator' in alert["properties"] and alert["properties"]["operator"]:
+          if 'operator' in alert["properties"] and alert["properties"]["operator"] is not None:
             arm_template = arm_template.replace("##OPERATOR##", alert["properties"]["operator"])
             bicep_template = bicep_template.replace("##OPERATOR##", alert["properties"]["operator"])
           else:
             arm_template = arm_template.replace("##OPERATOR##", "")
             bicep_template = bicep_template.replace("##OPERATOR##", "")
 
-          if 'failingPeriods' in alert["properties"] and alert["properties"]["failingPeriods"]["numberOfEvaluationPeriods"]:
+          if 'failingPeriods' in alert["properties"] and alert["properties"]["failingPeriods"]["numberOfEvaluationPeriods"] is not None:
             arm_template = arm_template.replace("##FAILING_PERIODS_NUMBER_OF_EVALUATION_PERIODS##", str(int(alert["properties"]["failingPeriods"]["numberOfEvaluationPeriods"])))
             bicep_template = bicep_template.replace("##FAILING_PERIODS_NUMBER_OF_EVALUATION_PERIODS##", str(int(alert["properties"]["failingPeriods"]["numberOfEvaluationPeriods"])))
           else:
             arm_template = arm_template.replace("##FAILING_PERIODS_NUMBER_OF_EVALUATION_PERIODS##", "")
             bicep_template = bicep_template.replace("##FAILING_PERIODS_NUMBER_OF_EVALUATION_PERIODS##", "")
 
-          if 'failingPeriods' in alert["properties"] and alert["properties"]["failingPeriods"]["numberOfEvaluationPeriods"]:
+          if 'failingPeriods' in alert["properties"] and alert["properties"]["failingPeriods"]["numberOfEvaluationPeriods"] is not None:
             arm_template = arm_template.replace("##FAILING_PERIODS_MIN_FAILING_PERIODS_TO_ALERT##", str(int(alert["properties"]["failingPeriods"]["minFailingPeriodsToAlert"])))
             bicep_template = bicep_template.replace("##FAILING_PERIODS_MIN_FAILING_PERIODS_TO_ALERT##", str(int(alert["properties"]["failingPeriods"]["minFailingPeriodsToAlert"])))
           else:
             arm_template = arm_template.replace("##FAILING_PERIODS_MIN_FAILING_PERIODS_TO_ALERT##", "")
             bicep_template = bicep_template.replace("##FAILING_PERIODS_MIN_FAILING_PERIODS_TO_ALERT##", "")
 
-          if 'threshold' in alert["properties"] and alert["properties"]["threshold"]:
-            arm_template = arm_template.replace("##THRESHOLD##", str(int(alert["properties"]["threshold"])))
-            bicep_template = bicep_template.replace("##THRESHOLD##", str(int(alert["properties"]["threshold"])))
+          if 'threshold' in alert["properties"] and alert["properties"]["threshold"] is not None:
+            # Convert the threshold to a float
+            threshold = float(alert["properties"]["threshold"])
+            threshold = str(round(threshold))
+            if threshold == "":
+              raise Exception(f"Threshold is empty for alert {alert['guid']}")
+
+            arm_template = arm_template.replace("##THRESHOLD##", threshold)
+            bicep_template = bicep_template.replace("##THRESHOLD##", threshold)
           else:
             arm_template = arm_template.replace("##THRESHOLD##", "")
             bicep_template = bicep_template.replace("##THRESHOLD##", "")
 
-          if 'timeAggregation' in alert["properties"] and alert["properties"]["timeAggregation"]:
+          if 'timeAggregation' in alert["properties"] and alert["properties"]["timeAggregation"] is not None:
             arm_template = arm_template.replace("##TIME_AGGREGATION##", alert["properties"]["timeAggregation"])
             bicep_template = bicep_template.replace("##TIME_AGGREGATION##", alert["properties"]["timeAggregation"])
           else:
             arm_template = arm_template.replace("##TIME_AGGREGATION##", "")
             bicep_template = bicep_template.replace("##TIME_AGGREGATION##", "")
 
-          if 'windowSize' in alert["properties"] and alert["properties"]["windowSize"]:
+          if 'windowSize' in alert["properties"] and alert["properties"]["windowSize"] is not None:
             arm_template = arm_template.replace("##WINDOW_SIZE##", alert["properties"]["windowSize"])
             bicep_template = bicep_template.replace("##WINDOW_SIZE##", alert["properties"]["windowSize"])
           else:
             arm_template = arm_template.replace("##WINDOW_SIZE##", "")
             bicep_template = bicep_template.replace("##WINDOW_SIZE##", "")
 
-          if 'evaluationFrequency' in alert["properties"] and alert["properties"]["evaluationFrequency"]:
+          if 'evaluationFrequency' in alert["properties"] and alert["properties"]["evaluationFrequency"] is not None:
             arm_template = arm_template.replace("##EVALUATION_FREQUENCY##", alert["properties"]["evaluationFrequency"])
             bicep_template = bicep_template.replace("##EVALUATION_FREQUENCY##", alert["properties"]["evaluationFrequency"])
           else:
             arm_template = arm_template.replace("##EVALUATION_FREQUENCY##", "")
             bicep_template = bicep_template.replace("##EVALUATION_FREQUENCY##", "")
 
-          if 'dimensions' in alert["properties"] and "dimensions" in alert["properties"]:
+          if 'dimensions' in alert["properties"] and alert["properties"]["dimensions"] is not None:
             arm_template = arm_template.replace("##DIMENSIONS##", json.dumps(alert["properties"]["dimensions"]))
 
             dimensions = []
@@ -253,14 +259,14 @@ def main():
             arm_template = arm_template.replace("##DIMENSIONS##", "[]")
             bicep_template = bicep_template.replace("##DIMENSIONS##", "[]")
 
-          if 'operationName' in alert["properties"] and alert["properties"]["operationName"]:
+          if 'operationName' in alert["properties"] and alert["properties"]["operationName"] is not None:
             arm_template = arm_template.replace("##OPERATION_NAME##", alert["properties"]["operationName"])
             bicep_template = bicep_template.replace("##OPERATION_NAME##", alert["properties"]["operationName"])
           else:
             arm_template = arm_template.replace("##OPERATION_NAME##", "")
             bicep_template = bicep_template.replace("##OPERATION_NAME##", "")
 
-          if 'status' in alert["properties"] and alert["properties"]["status"]:
+          if 'status' in alert["properties"] and alert["properties"]["status"] is not None:
             arm_template = arm_template.replace("##STATUS##", json.dumps(alert["properties"]["status"]))
 
             statuses = []
@@ -272,7 +278,7 @@ def main():
             arm_template = arm_template.replace("##STATUS##", "")
             bicep_template = bicep_template.replace("##STATUS##", "")
 
-          if 'causes' in alert["properties"] and alert["properties"]["causes"]:
+          if 'causes' in alert["properties"] and alert["properties"]["causes"] is not None:
 
             causes = []
             for cause in alert["properties"]["causes"]:
@@ -297,7 +303,7 @@ def main():
             arm_template = arm_template.replace("##CAUSES##", "")
             bicep_template = bicep_template.replace("##CAUSES##", "")
 
-          if 'currentHealthStatus' in alert["properties"] and alert["properties"]["currentHealthStatus"]:
+          if 'currentHealthStatus' in alert["properties"] and alert["properties"]["currentHealthStatus"] is not None:
             currentHealthStatuses = []
             for currentHealthStatus in alert["properties"]["currentHealthStatus"]:
               currentHealthStatuses.append(f"""
@@ -321,7 +327,7 @@ def main():
             arm_template = arm_template.replace("##CURRENT_HEALTH_STATUS##", "")
             bicep_template = bicep_template.replace("##CURRENT_HEALTH_STATUS##", "")
 
-          if 'incidentType' in alert["properties"] and alert["properties"]["incidentType"]:
+          if 'incidentType' in alert["properties"] and alert["properties"]["incidentType"] is not None:
             arm_template = arm_template.replace("##INCIDENT_TYPE##", alert["properties"]["incidentType"])
             bicep_template = bicep_template.replace("##INCIDENT_TYPE##", alert["properties"]["incidentType"])
           else:
