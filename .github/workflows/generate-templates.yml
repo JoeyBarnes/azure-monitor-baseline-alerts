@@ -14,7 +14,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  update-files:
+  generate-templates:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
