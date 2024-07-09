@@ -37,8 +37,7 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
-          git add services/**/templates/arm
-          git add services/**/templates/bicep
+          git add services
           git commit -m "Generate templates for alerts"
           git push
 
