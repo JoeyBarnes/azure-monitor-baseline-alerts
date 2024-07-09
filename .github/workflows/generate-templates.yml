@@ -45,7 +45,6 @@ jobs:
           git config pull.ff only
 
           git checkout -B github-action-generate-templates --track origin/main
-          git rebase main
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
