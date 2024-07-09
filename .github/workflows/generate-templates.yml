@@ -41,11 +41,11 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
-          echo "Committing changes to the current branch: ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
-          git add --force services
-          git commit -m "Generate templates for alerts"
-          # Push changes to the PR branch
-          git push
+          git add services
+          if [[ `git status --porcelain` ]]; then
+            git commit -m "Generate templates for alerts"
+            git push
+          fi
 
 
 
