@@ -41,9 +41,10 @@ jobs:
 
           # Checkout the github-action-generate-templates branch (create if doesn't exist)
           git checkout -B github-action-generate-templates
+          git branch --set-upstream-to=origin/github-action-generate-templates github-action-generate-templates
 
           # Pull the latest changes from the main branch
-          git pull origin main --rebase
+          git pull --rebase
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
