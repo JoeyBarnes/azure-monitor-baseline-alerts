@@ -48,7 +48,7 @@ jobs:
           git branch --set-upstream-to=origin/main github-action-generate-templates
 
           # Pull the latest changes from the main branch
-          git pull --rebase
+          git pull origin main
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
@@ -63,10 +63,10 @@ jobs:
           if [[ `git status --porcelain` ]]; then
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
-            git pull -X ours
+            git pull origin main
 
             # Push changes to the current branch
-            git push origin github-action-generate-templates
+            git push
 
             prs=$(gh pr list \
                 --repo "$GITHUB_REPOSITORY" \
