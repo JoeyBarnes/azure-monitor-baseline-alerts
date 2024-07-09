@@ -43,11 +43,10 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git checkout main
-          git pull
-
           git checkout -B github-action-generate-templates
           git merge main
+
+          git branch -set-upstream-to=origin github-action-generate-templates
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
@@ -55,8 +54,6 @@ jobs:
 
           # Check if there are any changes in the services directory
           git add services
-
-          echo "skippr=true" >> "$GITHUB_OUTPUT"
 
           # Check if there are any changes to commit
           if [[ `git status --porcelain` ]]; then
@@ -74,11 +71,11 @@ jobs:
                 --json title \
                 --jq 'length')
 
-            echo "prs=$prs"
-
             if ((prs > 0)); then
                 echo "skippr=true" >> "$GITHUB_OUTPUT"
             fi
+          else
+                echo "skippr=true" >> "$GITHUB_OUTPUT"
           fi
       - name: Create pull request
         if: '!steps.generate.outputs.skippr'
