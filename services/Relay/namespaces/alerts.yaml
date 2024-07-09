@@ -2,7 +2,7 @@
   description: Total ActiveListeners for Microsoft.Relay.
   type: Metric
   verified: false
-  visible: false
+  visible: true
   tags:
   - auto-generated
   - agc-777
