@@ -338,7 +338,6 @@ def main():
 
           # Check if alert name already exists
           if alert_file_name in alert_file_names:
-            # raise an Exception
             raise Exception(f"Alert name {alert_file_name} already exists in the list of alerts for {category}/{resourceType}")
           else:
             alert_file_names.append(alert_file_name)
