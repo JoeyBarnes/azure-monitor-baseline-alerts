@@ -45,6 +45,7 @@ jobs:
 
           git checkout -B github-action-generate-templates
           git branch --set-upstream-to=origin/main github-action-generate-templates
+          git pull origin github-action-generate-templates
 
           git rebase main
 
