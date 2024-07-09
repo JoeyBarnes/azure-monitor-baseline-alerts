@@ -42,11 +42,9 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git config pull.ff only
 
-          git checkout -B github-action-generate-templates
-          git branch --set-upstream-to=origin/main github-action-generate-templates
-          git pull origin github-action-generate-templates
-
+          git checkout -B github-action-generate-templates --track origin/main
           git rebase main
 
           # Generate templates for alerts
@@ -61,7 +59,7 @@ jobs:
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
             # Push changes to the current branch
-            git push -u origin github-action-generate-templates
+            git push
 
             prs=$(gh pr list \
                 --repo "$GITHUB_REPOSITORY" \
