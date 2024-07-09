@@ -10,6 +10,7 @@ on:
       - 'docs/**'
       - 'services/**/alerts.yaml'
       - 'services/**/*.md'
+      - 'services/**/templates/**'
       - 'tooling/export-alerts/**'
       - 'tooling/generate-templates/**'
 

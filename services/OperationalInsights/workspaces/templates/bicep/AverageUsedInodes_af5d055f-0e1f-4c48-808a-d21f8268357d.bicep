@@ -27,7 +27,7 @@ param isEnabled bool = true
   3
   4
 ])
-param alertSeverity int = 
+param alertSeverity int = 0
 
 @description('Operator comparing the current value with the threshold value.')
 @allowed([
@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'Average_% Used Inodes'
-          dimensions: 
+          dimensions: [
             {
               name: 'computer'
               operator: 'include'
               values: ['*']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

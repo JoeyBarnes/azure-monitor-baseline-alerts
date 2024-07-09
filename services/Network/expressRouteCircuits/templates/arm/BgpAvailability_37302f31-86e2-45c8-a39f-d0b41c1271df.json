@@ -45,7 +45,7 @@
     },
     "alertSeverity": {
       "type": "int",
-      "defaultValue": ,
+      "defaultValue": 0,
       "allowedValues": [
         0,
         1,
@@ -171,7 +171,7 @@
             {
               "name": "1st criterion",
               "metricName": "BgpAvailability",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "threshold": "[parameters('threshold')]",
               "timeAggregation": "[parameters('timeAggregation')]",

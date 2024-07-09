@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'BackendResponseStatus'
-          dimensions: 
+          dimensions: [
             {
               name: 'httpstatusgroup'
               operator: 'include'
               values: ['5xx']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

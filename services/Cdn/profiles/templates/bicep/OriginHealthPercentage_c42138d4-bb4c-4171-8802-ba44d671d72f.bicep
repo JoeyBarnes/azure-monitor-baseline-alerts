@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'OriginHealthPercentage'
-          dimensions: 
+          dimensions: [
             {
               name: 'origingroup'
               operator: 'include'
               values: ['render']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

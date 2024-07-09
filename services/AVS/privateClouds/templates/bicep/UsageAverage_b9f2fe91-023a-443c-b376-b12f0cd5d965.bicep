@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'UsageAverage'
-          dimensions: 
+          dimensions: [
             {
               name: 'clustername'
               operator: 'include'
               values: ['*']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

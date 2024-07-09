@@ -73,7 +73,7 @@
     },
     "threshold": {
       "type": "string",
-      "defaultValue": "",
+      "defaultValue": "0",
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -171,7 +171,7 @@
             {
               "name": "1st criterion",
               "metricName": "ClientErrors",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "threshold": "[parameters('threshold')]",
               "timeAggregation": "[parameters('timeAggregation')]",

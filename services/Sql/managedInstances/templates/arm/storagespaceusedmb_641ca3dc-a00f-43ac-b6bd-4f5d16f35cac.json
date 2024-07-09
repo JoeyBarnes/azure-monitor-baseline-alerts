@@ -171,7 +171,7 @@
             {
               "name": "1st criterion",
               "metricName": "storage_space_used_mb",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "threshold": "[parameters('threshold')]",
               "timeAggregation": "[parameters('timeAggregation')]",

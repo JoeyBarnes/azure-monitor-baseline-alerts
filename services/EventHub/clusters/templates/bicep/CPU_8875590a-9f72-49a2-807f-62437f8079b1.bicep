@@ -107,12 +107,12 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'CPU'
-          dimensions: 
+          dimensions: [
             {
               name: 'role'
               operator: 'include'
               values: ['sbsfe']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -154,8 +154,7 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
               name: 'SessionHostRG'
               operator: 'Include'
               values: ['*']
-            }
-          ]
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -27,7 +27,7 @@ param isEnabled bool = true
   3
   4
 ])
-param alertSeverity int = 
+param alertSeverity int = 0
 
 @description('Operator comparing the current value with the threshold value.')
 @allowed([
@@ -40,7 +40,7 @@ param alertSeverity int =
 param operator string = 'GreaterThan'
 
 @description('The threshold value at which the alert is activated.')
-param threshold int = 
+param threshold int = 0
 
 @description('How the data that is collected should be combined over time.')
 @allowed([
@@ -107,7 +107,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'QueueCount'
-          dimensions: 
+          dimensions: [[]]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

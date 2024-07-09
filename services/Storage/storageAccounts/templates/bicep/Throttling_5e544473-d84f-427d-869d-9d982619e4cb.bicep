@@ -107,7 +107,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'Transactions'
-          dimensions: 
+          dimensions: [
             {
               name: 'ResponseType'
               operator: 'Include'
@@ -117,7 +117,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
               name: 'FileShare'
               operator: 'Include'
               values: ['SuccessWithShareEgressThrottling SuccessWithShareIngressThrottling SuccessWithShareIopsThrottling ClientShareEgressThrottlingError ClientShareIngressThrottlingError ClientShareIopsThrottlingError']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

@@ -107,7 +107,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
         {
           name: '1st criterion'
           metricName: 'Average_% Idle Time'
-          dimensions: 
+          dimensions: [
             {
               name: 'computer'
               operator: 'include'
@@ -117,7 +117,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
               name: 'objectname'
               operator: 'include'
               values: ['logicaldisk']
-            }
+            }]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

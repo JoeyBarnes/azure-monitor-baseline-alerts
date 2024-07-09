@@ -171,7 +171,7 @@
             {
               "name": "1st criterion",
               "metricName": "sqlserver_process_core_percent",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "threshold": "[parameters('threshold')]",
               "timeAggregation": "[parameters('timeAggregation')]",

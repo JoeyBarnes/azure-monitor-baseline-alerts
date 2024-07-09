@@ -188,7 +188,7 @@
               "criterionType": "DynamicThresholdCriterion",
               "name": "1st criterion",
               "metricName": "TriggerLatency",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "alertSensitivity": "[parameters('alertSensitivity')]",
               "failingPeriods": {
