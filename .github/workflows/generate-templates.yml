@@ -3,6 +3,8 @@ name: Generate Templates
 
 on:
   pull_request:
+    types:
+      - opened
     branches:
       - main
     paths:
@@ -40,10 +42,11 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
+          echo "Committing changes to the current branch: ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
           git add --force services
           git commit -m "Generate templates for alerts"
           # Push changes to the PR branch
-          git push origin ${{ github.head_ref }}
+          git push origin ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
 
 
 
