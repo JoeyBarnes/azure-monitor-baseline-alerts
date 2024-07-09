@@ -44,9 +44,9 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           git checkout -B github-action-generate-templates
-          git merge main
-
           git branch --set-upstream-to=origin github-action-generate-templates
+
+          git rebase main
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
@@ -59,10 +59,8 @@ jobs:
           if [[ `git status --porcelain` ]]; then
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
-            git pull origin main
-
             # Push changes to the current branch
-            git push origin github-action-generate-templates
+            git push
 
             prs=$(gh pr list \
                 --repo "$GITHUB_REPOSITORY" \
