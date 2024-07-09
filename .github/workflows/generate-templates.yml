@@ -44,7 +44,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           git checkout -B github-action-generate-templates
-          git branch --set-upstream-to=origin github-action-generate-templates
+          git branch --set-upstream-to=origin/main github-action-generate-templates
 
           git rebase main
 
