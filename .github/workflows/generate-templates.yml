@@ -60,7 +60,7 @@ jobs:
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
             # Push changes to the current branch
-            git push -u origin/main github-action-generate-templates
+            git push -u origin github-action-generate-templates
 
             prs=$(gh pr list \
                 --repo "$GITHUB_REPOSITORY" \
