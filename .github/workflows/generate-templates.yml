@@ -43,7 +43,7 @@ jobs:
           git checkout -B github-action-generate-templates
 
           # Pull the latest changes from the main branch
-          git pull origin main
+          git pull origin main --rebase
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
