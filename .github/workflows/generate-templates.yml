@@ -10,7 +10,7 @@ on:
       - 'tooling/generate-templates/**'
 
 jobs:
-  update-files:
+  generate-templates:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,3 +34,14 @@ jobs:
           pip install -r requirements.txt
           python generate-templates.py --path ../../services --output ../../services
         working-directory: tooling/generate-templates
+
+      - name: Commit changes to current branch
+        run: |
+          git add ../../services/**/templates/arm
+          git add ../../services/**/templates/bicep
+          git commit -m "Generate templates for alerts"
+          git push
+
+
+
+
