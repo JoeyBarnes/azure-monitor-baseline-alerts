@@ -118,6 +118,8 @@ def main():
             template_type = "activity-resourcehealth"
           elif alert["properties"]["category"] == "ServiceHealth":
             template_type = "activity-servicehealth"
+        else:
+          continue
 
         if template_type == "":
           print(f"Template not found for alert {alert['guid']}")
