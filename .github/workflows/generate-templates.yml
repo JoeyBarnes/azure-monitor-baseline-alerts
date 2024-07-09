@@ -46,7 +46,7 @@ jobs:
           git checkout -B github-action-generate-templates
           git merge main
 
-          git branch -set-upstream-to=origin github-action-generate-templates
+          git branch --set-upstream-to=origin github-action-generate-templates
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
