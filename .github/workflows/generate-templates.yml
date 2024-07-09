@@ -39,7 +39,7 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
-          git add --force --quiet services
+          git add --force --no-verbose services
           git commit -m "Generate templates for alerts"
           git push
 
