@@ -17,8 +17,7 @@ def readYamlData(dir, export_hidden):
 
   # Walk the directory tree and load all the alerts.yaml files
   # into a list of dictionaries using the folder path as the structure
-  # for the dictionary.  This will allow us to easily export the data
-  # to a CSV or XLS file.
+  # for the dictionary.
   data = {}
   for root, dirs, files in os.walk(dir):
     for file in files:
