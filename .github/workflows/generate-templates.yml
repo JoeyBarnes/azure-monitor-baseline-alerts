@@ -47,7 +47,7 @@ jobs:
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
-          python tooling/generate-templates/generate-templates.py --path services --output services --template_path /tooling/generate-templates/templates
+          python tooling/generate-templates/generate-templates.py --path services --output services --template_path tooling/generate-templates/templates
 
           # Check if there are any changes in the services directory
           git add services
