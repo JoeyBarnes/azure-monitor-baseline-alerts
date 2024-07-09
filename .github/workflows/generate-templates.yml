@@ -70,7 +70,8 @@ jobs:
                 --repo "$GITHUB_REPOSITORY" \
                 --head 'github-action-generate-templates' \
                 --base 'main' \
-                --json '[GitHub Action - Generate Templates] Generate templates for alerts' \
+                --title '[GitHub Action - Generate Templates] Generate templates for alerts' \
+                --json title \
                 --jq 'length')
             if ((prs > 0)); then
                 echo "skippr=true" >> "$GITHUB_OUTPUT"
