@@ -39,9 +39,11 @@ jobs:
 
       - name: Commit changes to current branch
         run: |
-          git add --force --no-verbose services
+          git add --force services
           git commit -m "Generate templates for alerts"
-          git push
+          # Push changes to the PR branch
+          git push origin HEAD:${GITHUB_REF#refs/heads/}
+
 
 
 
