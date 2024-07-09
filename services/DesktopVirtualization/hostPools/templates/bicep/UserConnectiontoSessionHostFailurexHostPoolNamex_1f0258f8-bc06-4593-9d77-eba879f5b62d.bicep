@@ -134,7 +134,7 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
           query: query
           metricMeasureColumn: metricMeasureColumn
           resourceIdColumn: resourceIdColumn
-          dimensions: [
+          dimensions: 
             {
               name: 'HostPool'
               operator: 'Include'
@@ -180,7 +180,6 @@ resource alert 'Microsoft.Insights/scheduledQueryRules@2021-08-01' = {
               operator: 'Include'
               values: ['*']
             }
-          ]
           operator: operator
           threshold: threshold
           timeAggregation: timeAggregation

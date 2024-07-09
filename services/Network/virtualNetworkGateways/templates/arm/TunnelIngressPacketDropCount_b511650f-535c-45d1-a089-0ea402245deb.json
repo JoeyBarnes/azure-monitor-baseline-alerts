@@ -188,7 +188,7 @@
               "criterionType": "DynamicThresholdCriterion",
               "name": "1st criterion",
               "metricName": "TunnelIngressPacketDropCount",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "alertSensitivity": "[parameters('alertSensitivity')]",
               "failingPeriods": {

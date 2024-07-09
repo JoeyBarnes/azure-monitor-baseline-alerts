@@ -250,8 +250,8 @@ def main():
 
             bicep_template = bicep_template.replace("##DIMENSIONS##", "".join(dimensions))
           else:
-            arm_template = arm_template.replace("##DIMENSIONS##", "")
-            bicep_template = bicep_template.replace("##DIMENSIONS##", "")
+            arm_template = arm_template.replace("##DIMENSIONS##", "[]")
+            bicep_template = bicep_template.replace("##DIMENSIONS##", "[]")
 
           if 'operationName' in alert["properties"] and alert["properties"]["operationName"]:
             arm_template = arm_template.replace("##OPERATION_NAME##", alert["properties"]["operationName"])

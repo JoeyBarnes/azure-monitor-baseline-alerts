@@ -171,7 +171,7 @@
             {
               "name": "1st criterion",
               "metricName": "Percentage5XX",
-              "dimensions": ,
+              "dimensions": [],
               "operator": "[parameters('operator')]",
               "threshold": "[parameters('threshold')]",
               "timeAggregation": "[parameters('timeAggregation')]",
