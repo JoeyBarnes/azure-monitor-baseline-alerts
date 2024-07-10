@@ -5,7 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches:
-      - foo
+      - main
     paths:
       - 'services/**/alerts.yaml'
       - 'tooling/generate-templates/**'
@@ -43,8 +43,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git checkout -B github-action-generate-templates
-          git push -u origin github-action-generate-templates
+          git checkout -b github-action-generate-templates
 
           # Generate templates for alerts
           echo "Generating templates for alerts..."
@@ -58,7 +57,7 @@ jobs:
             git commit -m "[GitHub Action - Generate Templates] Generate templates for alerts"
 
             # Push changes to the current branch
-            git push
+            git push --set-upstream origin github-action-generate-templates --force
 
             prs=$(gh pr list \
                 --repo "$GITHUB_REPOSITORY" \
