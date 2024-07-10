@@ -2,7 +2,7 @@
   description: Activity Log Alert for Azure Firewall Delete
   type: ActivityLog
   verified: false
-  visible: true
+  visible: false
   tags:
   - alz
   properties:
