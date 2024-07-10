@@ -3,7 +3,7 @@
     IoT hub
   type: Metric
   verified: false
-  visible: false
+  visible: true
   tags:
   - auto-generated
   - agc-263
