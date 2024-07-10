@@ -63,7 +63,7 @@
     as dropped messages are not delivered there.
   type: Metric
   verified: false
-  visible: true
+  visible: false
   tags:
   - auto-generated
   - agc-258
