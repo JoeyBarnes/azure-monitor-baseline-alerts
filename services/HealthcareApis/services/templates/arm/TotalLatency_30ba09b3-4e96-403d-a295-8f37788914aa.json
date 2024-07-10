@@ -11,7 +11,7 @@
     },
     "alertDescription": {
       "type": "string",
-      "defaultValue": "Number of total service api hits",
+      "defaultValue": "The response latency of the service.",
       "metadata": {
         "description": "Description of alert"
       }
@@ -59,7 +59,7 @@
     },
     "operator": {
       "type": "string",
-      "defaultValue": "GreaterThanOrEqual",
+      "defaultValue": "GreaterThan",
       "allowedValues": [
         "Equals",
         "GreaterThan",
@@ -73,14 +73,14 @@
     },
     "threshold": {
       "type": "string",
-      "defaultValue": "80",
+      "defaultValue": "10000",
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
     },
     "timeAggregation": {
       "type": "string",
-      "defaultValue": "Average",
+      "defaultValue": "Maximum",
       "allowedValues": [
         "Average",
         "Minimum",
@@ -112,7 +112,7 @@
     },
     "evaluationFrequency": {
       "type": "string",
-      "defaultValue": "PT5M",
+      "defaultValue": "PT1M",
       "allowedValues": [
         "PT1M",
         "PT5M",
@@ -170,7 +170,7 @@
           "allOf": [
             {
               "name": "1st criterion",
-              "metricName": "ServiceApiHit",
+              "metricName": "TotalLatency",
               "dimensions": [],
               "operator": "[parameters('operator')]",
               "threshold": "[parameters('threshold')]",
